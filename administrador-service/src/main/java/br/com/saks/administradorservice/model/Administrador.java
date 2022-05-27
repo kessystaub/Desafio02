@@ -39,24 +39,4 @@ public class Administrador {
     private Integer status;
     
     
-    public String criptografaSenha(String senha){
-        String senhaHex = "";
-        
-        try{
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte messageDigest[] = md.digest(senha.getBytes("UTF-8"));
-            
-            StringBuilder sb = new StringBuilder();
-            
-            for(byte b : messageDigest){
-                sb.append(String.format("%02X", 0xFF & b));
-            }
-            senhaHex = sb.toString();
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return senhaHex;
-    }
 }
