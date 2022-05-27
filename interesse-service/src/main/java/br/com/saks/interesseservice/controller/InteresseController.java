@@ -27,6 +27,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/interesses")
 public class InteresseController {
+    
+    //Criar um Get para quando listar o cliente, trazer todos os imóveis de interesse
+    //Criar um Get para quando listar o imóvel, trazer todos os clientes interessados.
+    
+    
     @Autowired
     private InteresseRepository InteresseRepository;
     
