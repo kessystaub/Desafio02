@@ -12,22 +12,14 @@ import javax.persistence.Column;
  * @author 6962246
  */
 public class Interesse {
-    private Long idImovel;
-    private Long idCliente;
+    private InteresseIdentity interesseIdentity;
 
-    public Long getIdImovel() {
-        return idImovel;
+    public InteresseIdentity getInteresseIdentity() {
+        return interesseIdentity;
     }
 
-    public void setIdImovel(Long idImovel) {
-        this.idImovel = idImovel;
+    public void setInteresseIdentity(InteresseIdentity interesseIdentity) {
+        this.interesseIdentity = interesseIdentity;
     }
-
-    public Long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
-    }
+    
 }

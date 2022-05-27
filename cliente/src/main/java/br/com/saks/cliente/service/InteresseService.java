@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface InteresseService {
     
     @GetMapping(value = "/interesses/{idCliente}")
-    List<Interesse> findAllByInteresseIdCliente(@PathVariable("idCliente") Long idCliente);
+    List<Interesse> findAllByInteresseIdentityIdCliente(@PathVariable("idCliente") Long idCliente);
     //List<Interesse> listarPeloIdCliente(@PathVariable("idCliente") Long idCliente);
     //List<Interesse> findAllByInteresseIdentityIdCliente(@PathVariable("idCliente") Long idCliente);
    

@@ -62,10 +62,10 @@ public class ClienteController {
         Cliente cliente = clienteResponse.get();
         //System.out.println("antes do set.interesse, cliente.getInteresse: "+cliente.getInteresse());
         //System.out.println("cliente.getId(): "+cliente.getId());
-        System.out.println("interesseService.findAllByInteresseIdCliente(cliente.getId()): "+interesseService.findAllByInteresseIdCliente(cliente.getId()));
+        //System.out.println("interesseService.listarPeloIdCliente(cliente.getId()): "+interesseService.listarPeloIdCliente(cliente.getId()));
         //cliente.setInteresse(interesseService.listarPeloIdCliente(cliente.getId()));
         
-        cliente.setInteresse(interesseService.findAllByInteresseIdCliente(cliente.getId()));
+        cliente.setInteresse(interesseService.findAllByInteresseIdentityIdCliente(cliente.getId()));
         
         //System.out.println("depois do set.interesse, cliente.getInteresse: "+cliente.getInteresse());
         return cliente;
