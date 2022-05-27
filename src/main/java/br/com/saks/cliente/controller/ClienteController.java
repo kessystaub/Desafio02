@@ -89,6 +89,7 @@ public class ClienteController {
     public Cliente adicionar(@RequestBody Cliente Cliente) {
         Cliente.setSenha(criptografaSenha(Cliente.getSenha()));
         return ClienteRepository.save(Cliente);
+        
     }
     
     @PutMapping(value="/{id}")
