@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/tiposimovel")
 public class TipoImovelController {
-
     //Criar  um  Get  para quando listar o  tipo  de  imóvel,  trazer  todos  os imóveis associados.
     
     @Autowired
