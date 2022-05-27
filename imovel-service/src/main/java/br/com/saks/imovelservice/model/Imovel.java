@@ -6,6 +6,7 @@
 package br.com.saks.imovelservice.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,5 +41,7 @@ public class Imovel {
     private Integer status;
     @Transient
     TipoImovel tipoImovel;
+    @Transient
+    public List<Interesse> interesse;
     
 }

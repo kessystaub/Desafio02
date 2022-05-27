@@ -41,19 +41,24 @@ public class TipoImovelController {
     public List<TipoImovel> listarTodos() {
         return TipoImovelRepository.findAll();
     }
-    
+    /*
     @GetMapping(value="/{id}")
     public Optional<TipoImovel> listarPeloId(@PathVariable Long id) {
         return TipoImovelRepository.findById(id);
-    }
-    /*
+    }*/
+   
+    //@GetMapping(value="/tipo/{id_tipo_imovel}")
+    //List
+    
+    
     @GetMapping(value="/{id}")
     public TipoImovel listarPeloId(@PathVariable Long id) {
-        Optional<TipoImovel> imovelResponse = TipoImovelRepository.findById(id);
-        TipoImovel tipoimovel = imovelResponse.get();
-        tipoimovel.imoveis.add(imovelService.listarPeloId(tipoimovel.getIdImovel()));
+        Optional<TipoImovel> tipoimovelResponse = TipoImovelRepository.findById(id);
+        TipoImovel tipoimovel = tipoimovelResponse.get();
+        //tipoimovel.imoveis.add(imovelService.listarPeloId(imovel.getId()));
+        tipoimovel.setImoveis(imovelService.findAllByIdTipoImovel(tipoimovel.getId()));
         return tipoimovel;
-    }*/
+    }
     
     @PostMapping
     public TipoImovel adicionar(@RequestBody TipoImovel TipoImovel) {

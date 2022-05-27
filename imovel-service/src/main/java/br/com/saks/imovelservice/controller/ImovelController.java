@@ -8,6 +8,7 @@ package br.com.saks.imovelservice.controller;
 import br.com.saks.imovelservice.model.Imovel;
 import br.com.saks.imovelservice.model.TipoImovel;
 import br.com.saks.imovelservice.repository.ImovelRepository;
+import br.com.saks.imovelservice.service.InteresseService;
 import br.com.saks.imovelservice.service.TipoImovelService;
 import java.util.List;
 import java.util.Optional;
@@ -37,26 +38,39 @@ public class ImovelController {
     @Autowired
     private TipoImovelService tipoImovelService;
     
+    @Autowired
+    private InteresseService interesseService;
+    
     @Transient
     TipoImovel tipoImovel;
     
     @Autowired
     private ImovelRepository ImovelRepository;
     
+    /*
     @GetMapping
     public List<Imovel> listarTodos() {
         return ImovelRepository.findAll();
-    }
+    }*/
     
     @GetMapping(value="{id}")
     public Imovel listarPeloId(@PathVariable Long id) {
         Optional<Imovel> imovelResponse = ImovelRepository.findById(id);
         Imovel imovel = imovelResponse.get();
         imovel.setTipoImovel(tipoImovelService.listarPeloId(imovel.getIdTipoImovel()));
+        imovel.setInteresse(interesseService.findAllByInteresseIdentityIdImovel(imovel.getId()));
         return imovel;
     }
     
-    //@GetMapping(value="/tipo/{id_tipo_imovel}")
+  
+    
+    @GetMapping(value="/tiposimovel/{id_tipo_imovel}")
+    public List<Imovel> listarImovelPeloTipo(@PathVariable Long id_tipo_imovel){
+        return ImovelRepository.findAllByIdTipoImovel(id_tipo_imovel);
+        
+    }
+    
+    
     //List
     
     /*
